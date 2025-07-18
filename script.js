@@ -1,226 +1,118 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize animations
-    initAnimations();
-    
-    // Setup navigation
-    setupNavigation();
-    
-    // Setup scrolling effects
-    setupScrolling();
-    
-    // Setup skill animations
-    setupSkillAnimations();
-    
-    // Setup form submission
-    setupContactForm();
+// Toggle About Text
+function toggleAboutText() {
+  const moreText = document.getElementById("more-text");
+  const btn = document.getElementById("see-more-btn");
+
+  if (moreText.classList.contains("visible")) {
+    moreText.classList.remove("visible");
+    btn.textContent = "See More";
+  } else {
+    moreText.classList.add("visible");
+    btn.textContent = "See Less";
+  }
+}
+
+// Create Floating Particles
+function createParticles() {
+  const particlesContainer = document.getElementById('particles');
+  const particleCount = 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 6 + 's';
+    particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    particlesContainer.appendChild(particle);
+  }
+}
+
+// Intersection Observer for Fade-In Animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
-  
-  // Initialize animations with delay
-  function initAnimations() {
-    const fadeElements = document.querySelectorAll('.hero-text h1, .hero-text h2, .hero-text p, .hero-buttons');
-    
-    fadeElements.forEach((element, index) => {
-      element.classList.add('fade-in');
-      element.classList.add(`delay-${index + 1}`);
-    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
+
+// Mobile Menu Toggle
+document.querySelector('.mobile-menu').addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
   }
-  
-  // Setup mobile navigation and scroll effects
-  function setupNavigation() {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-    const navbar = document.querySelector('#navbar');
-    
-    // Toggle navigation menu
-    burger.addEventListener('click', () => {
-      // Toggle nav
-      nav.classList.toggle('nav-active');
-      
-      // Animate links
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = '';
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-        link.classList.toggle('fade');
-      });
-      
-      // Burger animation
-      burger.classList.toggle('toggle');
-    });
-    
-    // Close menu when clicking a nav link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('nav-active');
-        burger.classList.remove('toggle');
-        navLinks.forEach(l => {
-          l.style.animation = '';
-          l.classList.remove('fade');
-        });
-      });
-    });
-    
-    // Add scrolled class to navbar on scroll
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  }
-  
-  // Setup scrolling effects and active nav links
-  function setupScrolling() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    window.addEventListener('scroll', () => {
-      let current = '';
-      
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-  }
-  
-  // Setup skill bar animations when in viewport
-  function setupSkillAnimations() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    // Initial state (width: 0)
-    skillBars.forEach(bar => {
-      bar.style.width = '0';
-    });
-    
-    // Animate when in viewport
-    function animateSkills() {
-      const skillsSection = document.getElementById('skills');
-      const sectionPosition = skillsSection.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.3;
-      
-      if (sectionPosition < screenPosition) {
-        skillBars.forEach(bar => {
-          const width = bar.getAttribute('style').split(':')[1];
-          if (width === '0px' || width === ' 0px') {
-            bar.style.width = bar.parentElement.getAttribute('style').split(':')[1];
-          }
-        });
-        window.removeEventListener('scroll', animateSkills);
-      }
-    }
-    
-    window.addEventListener('scroll', animateSkills);
-    // Also run once on load in case the skills section is already in view
-    animateSkills();
-  }
-  
-  // Setup contact form submission
-  function setupContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the data to a server
-        // For this example, we'll just show an alert
-        alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`);
-        
-        // Reset the form
-        contactForm.reset();
-      });
+});
+
+// Typewriter Effect for Heading and Subheading
+function typeWriter(element, text, speed, callback) {
+  let i = 0;
+  element.classList.add('typewriter-cursor');
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      element.classList.remove('typewriter-cursor');
+      if (callback) callback();
     }
   }
-  
-  // Typewriter effect for the hero section
-  class TypeWriter {
-    constructor(txtElement, words, wait = 3000) {
-      this.txtElement = txtElement;
-      this.words = words;
-      this.txt = '';
-      this.wordIndex = 0;
-      this.wait = parseInt(wait, 10);
-      this.type();
-      this.isDeleting = false;
-    }
-  
-    type() {
-      // Current index of word
-      const current = this.wordIndex % this.words.length;
-      // Get full text of current word
-      const fullTxt = this.words[current];
-  
-      // Check if deleting
-      if (this.isDeleting) {
-        // Remove char
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        // Add char
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
-  
-      // Insert txt into element
-      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-  
-      // Initial Type Speed
-      let typeSpeed = 100;
-  
-      if (this.isDeleting) {
-        typeSpeed /= 2;
-      }
-  
-      // If word is complete
-      if (!this.isDeleting && this.txt === fullTxt) {
-        // Make pause at end
-        typeSpeed = this.wait;
-        // Set delete to true
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        // Move to next word
-        this.wordIndex++;
-        // Pause before start typing
-        typeSpeed = 500;
-      }
-  
-      setTimeout(() => this.type(), typeSpeed);
-    }
-  }
-  
-  // Init On DOM Load
-  document.addEventListener('DOMContentLoaded', init);
-  
-  // Init App
-  function init() {
-    const txtElement = document.querySelector('.txt-type');
-    
-    if (txtElement) {
-      const words = JSON.parse(txtElement.getAttribute('data-words'));
-      const wait = txtElement.getAttribute('data-wait');
-      // Init TypeWriter
-      new TypeWriter(txtElement, words, wait);
-    }
-  }
+  type();
+}
+
+window.addEventListener('load', () => {
+  const heading = document.getElementById('animated-heading');
+  const subheading = document.getElementById('animated-subheading');
+  heading.textContent = '';
+  subheading.textContent = '';
+  typeWriter(heading, "Sandun Tharaka Perera", 100, () => {
+    typeWriter(subheading, "Software Engineer", 100);
+  });
+  createParticles();
+});
+
+// Mouse Movement Parallax Effect for Particles
+document.addEventListener('mousemove', (e) => {
+  const particles = document.querySelectorAll('.particle');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  particles.forEach((particle, index) => {
+    const speed = (index % 5 + 1) * 0.5;
+    const xPos = (x - 0.5) * speed;
+    const yPos = (y - 0.5) * speed;
+    particle.style.transform = `translate(${xPos}px, ${yPos}px)`;
+  });
+});
+
+// Contact Form Submission (Basic Example)
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+
+  // Placeholder for form submission logic (e.g., API call)
+  console.log('Form submitted:', { name, email, subject, message });
+  alert('Message sent! (This is a placeholder - actual submission requires a backend.)');
+  document.getElementById('contactForm').reset();
+});

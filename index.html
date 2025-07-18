@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandun Tharaka Perera | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Sandun Tharaka Perera - Full-Stack Software Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Navigation -->
+  <div class="particles" id="particles"></div>
+
   <nav id="navbar">
-    <div class="logo">
-      <h1>My <span>  Portfolio</span></h1>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="burger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
+    <div class="nav-container">
+      <div class="logo">
+        <h1>Sandun <span>Perera</span></h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home">
+  <section id="home" class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h1>Sandun Tharaka <span>Perera</span></h1>
-        <h2>Full-Stack Software Engineer</h2>
-        <p>Hello World! 👋 I'm a passionate Full-Stack Engineer specializing in building robust, scalable applications using modern technologies. I bridge the gap between elegant frontends and powerful backends.</p>
+        <h1 id="animated-heading">Sandun Tharaka Perera</h1>
+        <h2 id="animated-subheading">Software Engineer</h2>
+        <p>Hello World! 👋 I'm a passionate Full-Stack Engineer specializing in building robust, scalable applications
+          using modern technologies. I bridge the gap between elegant frontends and powerful backends.</p>
         <div class="hero-buttons">
-          <a href="https://drive.google.com/file/d/1lu7z-mRcCNm81PbPWj9fwWAOzkEwsCpQ/view?usp=sharing" target="_blank" class="btn primary-btn">
+          <a href="https://drive.google.com/file/d/1EbsEs9R0i5b1QTq9h1bZqK2UTMIcFYqH/view?usp=sharing" target="_blank"
+            class="btn primary-btn">
             <i class="fas fa-download"></i> Download CV
           </a>
-
           <a href="#contact" class="btn secondary-btn">
             <i class="fas fa-envelope"></i> Contact Me
           </a>
@@ -46,7 +53,7 @@
       </div>
       <div class="hero-image">
         <div class="image-container">
-          <img src="../../../../2.jpg" alt="Sandun Tharaka Perera">
+          <img src="2.jpg" alt="Sandun Tharaka Perera">
         </div>
       </div>
     </div>
@@ -57,217 +64,190 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-<section id="skills">
+ <section id="about" class="fade-in">
     <div class="section-title">
-      <h2>Technical Arsenal</h2>
+      <h2>About Me</h2>
       <div class="underline"></div>
     </div>
-    
-    <div class="skills-container">
-      <!-- Backend Category -->
-      <div class="skill-category-container">
-        <div class="skill-category-header">
-          <i class="fas fa-server"></i>
-          <h3>Backend Expertise</h3>
+    <div class="about-content">
+      <div class="profile-image">
+        <span class="emoji">👨‍💻</span>
+      </div>
+      <div class="about-text">
+        <p>I am more than just a developer—I am a problem solver driven by curiosity and innovation. Every line of code I write is guided by a clear goal: to make software smarter, faster, and more user-centric. Whether I’m working on a complex backend system using Spring Boot or crafting beautiful UIs with React.js and Tailwind CSS, I always prioritize clean code, reusability, and performance.</p>
+        <p>One of the key things I value is collaboration. My experiences working both on-site and remotely with cross-functional teams have taught me how to communicate effectively, adapt to team dynamics, and deliver quality results even under tight deadlines. I’m a firm believer in Agile methodologies and continuous integration, and I embrace every opportunity to learn from feedback and improve my work.</p>
+        <div id="more-text" class="more-text">
+          <p>What excites me most about the tech industry is how quickly it evolves. I actively explore new frameworks, tools, and architectures—whether it's diving deeper into cloud services like AWS, learning about containerization with Docker, or enhancing UI/UX workflows with tools like Figma. I don’t just keep up with trends; I try to stay ahead of them.</p>
+          <p>Outside of coding, I enjoy mentoring junior developers, writing tech blogs, and contributing to open-source projects when I can. I see software engineering not just as a career—but as a craft I’m committed to mastering. My mission is to build products that are not only functional, but delightful to use—and that leave a meaningful impact.</p>
         </div>
-        <div class="skills-grid">
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+        <button id="see-more-btn" class="see-more-btn" onclick="toggleAboutText()">See More</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Arsenal</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-server"></i> Backend Expertise</h3>
+          <div class="skill-items">
+            <div class="skill-item">
               <i class="fab fa-java"></i>
+              <span>Java</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>Java</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fas fa-leaf"></i>
+              <span>Spring Boot</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>Spring Boot</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fas fa-database"></i>
+              <span>Hibernate</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>Hibernate</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-node-js"></i>
+              <span>Node.js</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>Node.js</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fas fa-server"></i>
+              <span>Express</span>
+              <div class="skill-level intermediate">Intermediate</div>
             </div>
-            <span>Express</span>
-            <div class="skill-level intermediate">Intermediate</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
-              <i class="fab fa-python"></i>
-            </div>
-            <!-- <span>Python</span>
-            <div class="skill-level intermediate">Intermediate</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-microsoft"></i>
-            </div> -->
-            <span>C#</span>
-            <div class="skill-level intermediate">Intermediate</div>
+              <span>C#</span>
+              <div class="skill-level intermediate">Intermediate</div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Frontend Category -->
-      <div class="skill-category-container">
-        <div class="skill-category-header">
-          <i class="fas fa-laptop-code"></i>
-          <h3>Frontend Mastery</h3>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+
+        <div class="skill-category">
+          <h3><i class="fas fa-laptop-code"></i> Frontend Mastery</h3>
+          <div class="skill-items">
+            <div class="skill-item">
               <i class="fab fa-react"></i>
+              <span>React</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>React</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-react"></i>
+              <span>React Native</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>React Native</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <!-- <div class="skill-item">
               <i class="fab fa-angular"></i>
-            </div>
-            <span>Angular</span>
-            <div class="skill-level intermediate">Intermediate</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+              <span>Angular</span>
+              <div class="skill-level intermediate">Intermediate</div>
+            </div> -->
+            <div class="skill-item">
               <i class="fas fa-code-branch"></i>
+              <span>Redux</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>Redux</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-html5"></i>
+              <span>HTML5/CSS3</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>HTML5/CSS3</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>JavaScript</span>
-            <div class="skill-level expert">Expert</div>
           </div>
         </div>
-      </div>
-      
-      <!-- UI Frameworks -->
-      <div class="skill-category-container">
-        <div class="skill-category-header">
-          <i class="fas fa-paint-brush"></i>
-          <h3>UI Frameworks</h3>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+
+        <div class="skill-category">
+          <h3><i class="fas fa-paint-brush"></i> UI Frameworks</h3>
+          <div class="skill-items">
+            <div class="skill-item">
               <i class="fab fa-css3-alt"></i>
+              <span>Tailwind CSS</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>Tailwind CSS</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-bootstrap"></i>
+              <span>Bootstrap</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>Bootstrap</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fas fa-palette"></i>
+              <span>Material UI</span>
+              <div class="skill-level advanced">Advanced</div>
             </div>
-            <span>Material UI</span>
-            <div class="skill-level advanced">Advanced</div>
           </div>
         </div>
-      </div>
-      
-      <!-- Database & Cloud -->
-      <div class="skill-category-container">
-        <div class="skill-category-header">
-          <i class="fas fa-database"></i>
-          <h3>Database & Cloud</h3>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Database & Cloud</h3>
+          <div class="skill-items">
+            <!-- <div class="skill-item">
               <i class="fas fa-database"></i>
-            </div>
-            <span>MongoDB</span>
-            <div class="skill-level advanced">Advanced</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+              <span>MongoDB</span>
+              <div class="skill-level advanced">Advanced</div>
+            </div> -->
+            <div class="skill-item">
               <i class="fas fa-database"></i>
+              <span>MySQL</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>MySQL</span>
-            <div class="skill-level expert">Expert</div>
-          </div>
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fab fa-aws"></i>
+              <span>AWS</span>
+              <div class="skill-level intermediate">Intermediate</div>
             </div>
-            <span>AWS</span>
-            <div class="skill-level intermediate">Intermediate</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- API Development -->
-      <div class="skill-category-container">
-        <div class="skill-category-header">
-          <i class="fas fa-code-branch"></i>
-          <h3>API Development</h3>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-icon-card">
-            <div class="skill-icon">
+            <div class="skill-item">
               <i class="fas fa-exchange-alt"></i>
+              <span>REST API</span>
+              <div class="skill-level expert">Expert</div>
             </div>
-            <span>REST API</span>
-            <div class="skill-level expert">Expert</div>
           </div>
         </div>
       </div>
     </div>
-  </section>    
+  </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="fade-in">
     <div class="section-title">
       <h2>Featured Projects</h2>
       <div class="underline"></div>
     </div>
-    
+
+
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-img">
-          <img src="../../../../project1.jpg" alt="E-Commerce Platform">
+          <img src="Project5.jpg" alt="Job Website - Frontend">
+        </div>
+        <div class="project-content">
+          <h3>Job Website - Frontend</h3>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Matirial UI</span>
+            <span>Sweet Alert</span>
+            <span>Axios</span>
+          </div>
+          <p>JobHunt is a modern, user-friendly job portal where job seekers can browse job listings, apply for
+            opportunities, and create profiles. Employers can post jobs, manage applications, and search for potential
+            candidates – all in real-time.</p>
+          <div class="project-links">
+            <a href="https://github.com/Sanduntha/job-web-frontend" target="_blank" class="project-btn">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="project1.jpg" alt="E-Commerce Platform">
         </div>
         <div class="project-content">
           <h3>E-Commerce Platform</h3>
@@ -275,9 +255,9 @@
             <span>Spring Boot</span>
             <span>React</span>
             <span>Redux</span>
-            <span>MongoDB</span>
+            <span>MySql</span>
           </div>
-          <p>Your one-stop online store for everything you need – from fashion and electronics to home essentials. Shop easily, securely, and enjoy fast delivery and great deals every day!</p>
+          <p>A full-stack e-commerce solution with integrated payment gateway and inventory management.</p>
           <div class="project-links">
             <a href="https://github.com/Sanduntha/e_cart" target="_blank" class="project-btn">
               <i class="fab fa-github"></i> View Code
@@ -288,10 +268,11 @@
           </div>
         </div>
       </div>
-      
+
+
       <div class="project-card">
         <div class="project-img">
-          <img src="../../../../Project3.jpg" alt="Coffee Shop Website">
+          <img src="Project3.jpg" alt="Coffee Shop Website">
         </div>
         <div class="project-content">
           <h3>Coffee Shop Website</h3>
@@ -300,33 +281,33 @@
             <span>Tailwind Css</span>
             <span>Java Script</span>
             <span>My Sql</span>
-
           </div>
-          <p>Brewed to perfection – enjoy freshly roasted coffee, cozy vibes, and delicious treats at your favorite local coffee spot. Sip, relax, and unwind with us.</p>
+          <p>Real-time health monitoring application with push notifications and user-friendly interface.</p>
           <div class="project-links">
             <a href="https://github.com/Sanduntha/coffee-shop-website" target="_blank" class="project-btn">
               <i class="fab fa-github"></i> View Code
             </a>
-            <a href="https://gleaming-kleicha-347bc0.netlify.app/" target="_blank" class="project-btn">
+            <a href="https://gleaming-kleicha-347bc0.netlify.app/" class="project-btn">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
           </div>
         </div>
       </div>
-      
+
+
       <div class="project-card">
         <div class="project-img">
-          <img src="../../../../project2.jpg" alt="Enterprise Dashboard">
+          <img src="project2.jpg" alt="Safari Website">
         </div>
         <div class="project-content">
           <h3>Safari Website</h3>
           <div class="project-tags">
-            <span>Html</span>
-            <span>CSS</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
             <span>JavaScript</span>
             <span>MySQL</span>
           </div>
-          <p>Explore the wild like never before with our safari adventures. Discover breathtaking landscapes, witness majestic wildlife, and experience nature up close with expert-guided tours.</p>
+          <p>Comprehensive wildlife safari booking platform with custom analytics and booking management system.</p>
           <div class="project-links">
             <a href="https://github.com/Sanduntha/safari_web" target="_blank" class="project-btn">
               <i class="fab fa-github"></i> View Code
@@ -338,9 +319,10 @@
         </div>
       </div>
 
+
       <div class="project-card">
         <div class="project-img">
-          <img src="../../../../Project4.jpg" alt="Coffee Shop Website">
+          <img src="project4.jpg" alt="Clothing Brand Website">
         </div>
         <div class="project-content">
           <h3>Clothing Brand Website</h3>
@@ -349,9 +331,9 @@
             <span>Tailwind Css</span>
             <span>Type Script</span>
             <span>Rest API</span>
-
           </div>
-          <p>A stylish and responsive e-commerce platform for a fashion brand, developed using TypeScript with modern front-end technologies. Features include product listings, category filtering, and a shopping cart, offering users a smooth and secure shopping experience with type-safe code architecture.</p>
+          <p>Comprehensive Clothing Brand Website. Explore stylish, comfortable, and affordable clothing made to express
+            who you are.</p>
           <div class="project-links">
             <a href="https://github.com/Sanduntha/clothing_web" target="_blank" class="project-btn">
               <i class="fab fa-github"></i> View Code
@@ -362,18 +344,86 @@
           </div>
         </div>
       </div>
-      
 
+
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="Project5.jpg" alt="Job Website - Backend">
+        </div>
+        <div class="project-content">
+          <h3>Job Website - Backend</h3>
+          <div class="project-tags">
+            <span>Springboot</span>
+            <span>Spring Security</span>
+            <span>Model Maper</span>
+            <span>JWT</span>
+            <span>MySql</span>
+          </div>
+          <p>The backend of JobHunt is powered by Spring Boot, ensuring high performance, scalability, and security. It
+            manages core functionalities like user authentication, job postings, applications, and role-based access for
+            employers and job seekers.</p>
+          <div class="project-links">
+            <a href="https://github.com/Sanduntha/job-web-frontend" target="_blank" class="project-btn">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="project7.jpg" alt="Fashion Website">
+        </div>
+        <div class="project-content">
+          <h3>Fashion Website</h3>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Matirial UI</span>
+            <span>Axios</span>
+          </div>
+          <p>The frontend is developed using React.js, offering a fast, interactive, and responsive user experience. It
+            features dynamic product browsing, filterable collections, smooth page transitions, and a modern design
+            optimized for all devices.</p>
+          <div class="project-links">
+            <a href="https://github.com/Sanduntha/pabbi-fashion-store" target="_blank" class="project-btn">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="project8.jpg" alt="ID Card Validator">
+        </div>
+        <div class="project-content">
+          <h3>ID Card Validator</h3>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Restful API</span>
+          </div>
+          <p>The ID Card Validator securely verifies the authenticity and validity of identification cards by
+            cross-checking key details against a trusted database. It ensures accurate identity verification in
+            real-time, reducing fraud and speeding up verification processes for businesses and institutions.</p>
+          <div class="project-links">
+            <a href="https://github.com/Sanduntha/lanka-nic-validator" target="_blank" class="project-btn">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <div class="section-title">
       <h2>Let's Build Together!</h2>
       <div class="underline"></div>
     </div>
-    
     <div class="contact-container">
       <div class="contact-info">
         <div class="contact-item">
@@ -383,7 +433,6 @@
             <p><a href="mailto:sanduntharaka9651@gmail.com">sanduntharaka9651@gmail.com</a></p>
           </div>
         </div>
-        
         <div class="contact-item">
           <i class="fab fa-github"></i>
           <div>
@@ -391,7 +440,6 @@
             <p><a href="https://github.com/Sanduntha" target="_blank">github.com/Sanduntha</a></p>
           </div>
         </div>
-        
         <div class="contact-item">
           <i class="fab fa-linkedin"></i>
           <div>
@@ -400,7 +448,6 @@
           </div>
         </div>
       </div>
-      
       <div class="contact-form">
         <form id="contactForm">
           <div class="form-group">
@@ -415,7 +462,7 @@
           <div class="form-group">
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
           </div>
-          <button type="submit" class="btn primary-btn">
+          <button type="submit" class="submit-button">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
         </form>
@@ -423,7 +470,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-quote">
@@ -431,15 +477,17 @@
       </div>
       <div class="social-links">
         <a href="https://github.com/Sanduntha" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
         <a href="mailto:sanduntharaka9651@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
       <div class="copyright">
-        <p>&copy; 2025 Sandun Tharaka Perera. All rights reserved.</p>
+        <p>© 2025 Sandun Tharaka Perera. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
