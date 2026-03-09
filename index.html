@@ -1,493 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandun Tharaka Perera - Full-Stack Software Engineer</title>
+  <title>Sandun Tharaka Perera — Software Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="particles" id="particles"></div>
 
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- ══ NAV ══ -->
   <nav id="navbar">
     <div class="nav-container">
-      <div class="logo">
-        <h1>Sandun <span>Perera</span></h1>
-      </div>
+      <div class="logo"><span class="logo-bracket">[</span>SP<span class="logo-bracket">]</span></div>
       <ul class="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home"       class="nav-link active"><span class="nav-num">01</span>Home</a></li>
+        <li><a href="#about"      class="nav-link"><span class="nav-num">02</span>About</a></li>
+        <li><a href="#skills"     class="nav-link"><span class="nav-num">03</span>Skills</a></li>
+        <li><a href="#experience" class="nav-link"><span class="nav-num">04</span>Experience</a></li>
+        <li><a href="#education"  class="nav-link"><span class="nav-num">05</span>Education</a></li>
+        <li><a href="#projects"   class="nav-link"><span class="nav-num">06</span>Projects</a></li>
+        <li><a href="#contact"    class="nav-link"><span class="nav-num">07</span>Contact</a></li>
       </ul>
-      <div class="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="mobile-menu" id="mobileMenu"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#home"       class="mobile-nav-link">Home</a></li>
+        <li><a href="#about"      class="mobile-nav-link">About</a></li>
+        <li><a href="#skills"     class="mobile-nav-link">Skills</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#education"  class="mobile-nav-link">Education</a></li>
+        <li><a href="#projects"   class="mobile-nav-link">Projects</a></li>
+        <li><a href="#contact"    class="mobile-nav-link">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
+  <!-- ══ HERO ══ -->
   <section id="home" class="hero">
+    <div class="hero-grid-lines"></div>
     <div class="hero-content">
       <div class="hero-text">
-        <h1 id="animated-heading">Sandun Tharaka Perera</h1>
-        <h2 id="animated-subheading">Software Engineer</h2>
-        <p>Hello World! 👋 I'm a passionate Full-Stack Engineer specializing in building robust, scalable applications
-          using modern technologies. I bridge the gap between elegant frontends and powerful backends.</p>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Open to new opportunities</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="line-reveal">Sandun</span>
+          <span class="line-reveal accent-word">Perera</span>
+          <!-- <span class="line-reveal">Perera</span> -->
+        </h1>
+        <div class="hero-title-wrapper">
+          <h2 class="hero-title">Software <span id="typed-text"></span><span class="typed-cursor">|</span></h2>
+        </div>
+        <p class="hero-desc">Hello World! 👋 Dedicated Software Engineer &amp; IT undergraduate at UCSC with 1+ years of hands-on experience in building scalable web applications. I specialise in React.js, Spring Boot, Laravel, and Node.js — delivering clean, performant full-stack solutions.</p>
         <div class="hero-buttons">
-          <a href="https://drive.google.com/file/d/1EbsEs9R0i5b1QTq9h1bZqK2UTMIcFYqH/view?usp=sharing" target="_blank"
-            class="btn primary-btn">
+          <a href="https://drive.google.com/file/d/1zS_WMeHnIfjBnfeYIVD7n60N3CQtWucC/view?usp=drive_link" target="_blank" class="btn primary-btn">
             <i class="fas fa-download"></i> Download CV
           </a>
           <a href="#contact" class="btn secondary-btn">
-            <i class="fas fa-envelope"></i> Contact Me
+            <i class="fas fa-arrow-right"></i> Let's Talk
           </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">1+</span><span class="stat-label">Years Exp</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Projects</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">5</span><span class="stat-label">Tech Stacks</span></div>
         </div>
       </div>
       <div class="hero-image">
-        <div class="image-container">
+        <div class="image-frame">
+          <div class="image-border-anim"></div>
           <img src="2.jpg" alt="Sandun Tharaka Perera">
+          <div class="image-tag tag-1"><i class="fab fa-react"></i> React.js</div>
+          <div class="image-tag tag-3"><i class="fab fa-nextjs"></i> Next.js</div>
+          <div class="image-tag tag-2"><i class="fas fa-leaf"></i> Spring Boot</div>
+          <div class="image-tag tag-7"><i class="fab fa-laravel"></i> Laravel</div>
+          <div class="image-tag tag-10"><i class="fas fa-server"></i> Express.js</div>
+          <div class="image-tag tag-3"><i class="fab fa-aws"></i> AWS</div>
+          <div class="image-tag tag-4"><i class="fab fa-node-js"></i> Node.js</div>
+          <!-- <div class="image-tag tag-5"><i class="fab fa-java"></i> Java</div> -->
+          <!-- <div class="image-tag tag-6"><i class="fab fa-php"></i> PHP</div> -->
+          <div class="image-tag tag-8"><i class="fas fa-database"></i> MySQL</div>
+          <div class="image-tag tag-9"><i class="fas fa-code-branch"></i> Git</div>            
+
         </div>
       </div>
     </div>
-    <div class="scroll-down">
-      <a href="#skills">
-        <i class="fas fa-chevron-down"></i>
-      </a>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"><div class="scroll-dot"></div></div>
     </div>
   </section>
 
- <section id="about" class="fade-in">
-    <div class="section-title">
-      <h2>About Me</h2>
-      <div class="underline"></div>
-    </div>
-    <div class="about-content">
-      <div class="profile-image">
-        <span class="emoji">👨‍💻</span>
-      </div>
-      <div class="about-text">
-        <p>I am more than just a developer—I am a problem solver driven by curiosity and innovation. Every line of code I write is guided by a clear goal: to make software smarter, faster, and more user-centric. Whether I’m working on a complex backend system using Spring Boot or crafting beautiful UIs with React.js and Tailwind CSS, I always prioritize clean code, reusability, and performance.</p>
-        <p>One of the key things I value is collaboration. My experiences working both on-site and remotely with cross-functional teams have taught me how to communicate effectively, adapt to team dynamics, and deliver quality results even under tight deadlines. I’m a firm believer in Agile methodologies and continuous integration, and I embrace every opportunity to learn from feedback and improve my work.</p>
-        <div id="more-text" class="more-text">
-          <p>What excites me most about the tech industry is how quickly it evolves. I actively explore new frameworks, tools, and architectures—whether it's diving deeper into cloud services like AWS, learning about containerization with Docker, or enhancing UI/UX workflows with tools like Figma. I don’t just keep up with trends; I try to stay ahead of them.</p>
-          <p>Outside of coding, I enjoy mentoring junior developers, writing tech blogs, and contributing to open-source projects when I can. I see software engineering not just as a career—but as a craft I’m committed to mastering. My mission is to build products that are not only functional, but delightful to use—and that leave a meaningful impact.</p>
-        </div>
-        <button id="see-more-btn" class="see-more-btn" onclick="toggleAboutText()">See More</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
+  <!-- ══ ABOUT ══ -->
+  <section id="about" class="section reveal">
     <div class="container">
-      <div class="section-title">
-        <h2>Technical Arsenal</h2>
+      <div class="section-header">
+        <span class="section-tag">// who i am</span>
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+      </div>
+      <div class="about-content">
+        <div class="about-visual">
+          <div class="about-card-stack">
+            <div class="about-emoji-card"><span>👨‍💻</span></div>
+            <div class="about-info-card">
+              <div class="info-row"><i class="fas fa-map-marker-alt"></i> Negombo, Sri Lanka</div>
+              <div class="info-row"><i class="fas fa-phone"></i> +94 76 694 6953</div>
+              <div class="info-row"><i class="fas fa-graduation-cap"></i> Undergraduate in the BSc. IT — UCSC</div>
+              <div class="info-row"><i class="fas fa-briefcase"></i> Livezen Technologies</div>
+              <div class="info-row"><i class="fas fa-globe"></i>
+                <a href="https://www.sanduntharaka.me" target="_blank">sanduntharaka.me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>I am <strong>Sandun Perera</strong>, a dedicated Software Engineer and Information Technology undergraduate at the <strong>University of Colombo School of Computing (UCSC)</strong>. With over <strong>2 years of hands-on experience</strong> in full-stack development, I'm a problem solver driven by curiosity and a commitment to clean, reusable code.</p>
+          <p>I design, develop, and deploy scalable web applications using <strong>Java Spring Boot, React.js, React Native, Node.js, Express.js,</strong> and <strong>Laravel</strong>. My hands-on experience with <strong>AWS (EC2 &amp; S3)</strong> allows me to take projects from development through to production-ready cloud deployment.</p>
+          <div id="more-text" class="more-text hidden">
+            <p>From on-site agile teams at <strong>ACPT</strong> to fully remote collaboration at <strong>Inkly &amp; Co</strong> and my current role at <strong>Livezen Technologies</strong>, I've thrived in diverse environments — always prioritising clear communication, software quality, and on-time delivery.</p>
+            <p>I am passionate about developing efficient, secure, and maintainable software that meets user needs and business goals. I continuously expand my knowledge of emerging technologies to stay at the forefront of the field. My mission is to build digital products that are not only functional, but truly delightful for people to use.</p>
+          </div>
+          <button id="see-more-btn" class="see-more-btn" onclick="toggleAboutText()">
+            <span>See More</span> <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="skills" class="section section-dark reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// what i use</span>
+        <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
       </div>
       <div class="skills-grid">
-        <div class="skill-category">
-          <h3><i class="fas fa-server"></i> Backend Expertise</h3>
+
+        <div class="skill-category reveal-child">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-server"></i></div>
+            <h3>Backend</h3>
+          </div>
           <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-java"></i>
-              <span>Java</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-leaf"></i>
-              <span>Spring Boot</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-database"></i>
-              <span>Hibernate</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-node-js"></i>
-              <span>Node.js</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-server"></i>
-              <span>Express</span>
-              <div class="skill-level intermediate">Intermediate</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-microsoft"></i>
-              <span>C#</span>
-              <div class="skill-level intermediate">Intermediate</div>
-            </div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-leaf"></i> Spring Boot</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-php"></i> PHP / Laravel</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-java"></i> Java</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-node-js"></i> Node.js</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-server"></i> Express.js</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-database"></i> Hibernate</span></div>
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3><i class="fas fa-laptop-code"></i> Frontend Mastery</h3>
+        <div class="skill-category reveal-child">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+            <h3>Frontend &amp; Mobile</h3>
+          </div>
           <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-react"></i>
-              <span>React</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-react"></i>
-              <span>React Native</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
-            <!-- <div class="skill-item">
-              <i class="fab fa-angular"></i>
-              <span>Angular</span>
-              <div class="skill-level intermediate">Intermediate</div>
-            </div> -->
-            <div class="skill-item">
-              <i class="fas fa-code-branch"></i>
-              <span>Redux</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-html5"></i>
-              <span>HTML5/CSS3</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-react"></i> React.js</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-react"></i> Next.js</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-react"></i> React Native</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-code-branch"></i> Redux</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-html5"></i> HTML5 / CSS3</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-js"></i> JavaScript</span></div>
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3><i class="fas fa-paint-brush"></i> UI Frameworks</h3>
+        <div class="skill-category reveal-child">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-paint-brush"></i></div>
+            <h3>UI Frameworks</h3>
+          </div>
           <div class="skill-items">
-            <div class="skill-item">
-              <i class="fab fa-css3-alt"></i>
-              <span>Tailwind CSS</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-bootstrap"></i>
-              <span>Bootstrap</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-palette"></i>
-              <span>Material UI</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-css3-alt"></i> Tailwind CSS</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-bootstrap"></i> Bootstrap</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-palette"></i> Material UI</span></div>
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3><i class="fas fa-database"></i> Database & Cloud</h3>
+        <div class="skill-category reveal-child">
+          <div class="skill-category-header">
+            <div class="skill-icon-wrap"><i class="fas fa-database"></i></div>
+            <h3>Database, Cloud &amp; Tools</h3>
+          </div>
           <div class="skill-items">
-            <!-- <div class="skill-item">
-              <i class="fas fa-database"></i>
-              <span>MongoDB</span>
-              <div class="skill-level advanced">Advanced</div>
-            </div> -->
-            <div class="skill-item">
-              <i class="fas fa-database"></i>
-              <span>MySQL</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-aws"></i>
-              <span>AWS</span>
-              <div class="skill-level intermediate">Intermediate</div>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-exchange-alt"></i>
-              <span>REST API</span>
-              <div class="skill-level expert">Expert</div>
-            </div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-database"></i> MySQL</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-leaf"></i> MongoDB</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-aws"></i> AWS (EC2 / S3)</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-exchange-alt"></i> REST APIs</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fab fa-git-alt"></i> Git / GitHub</span></div>
+            <div class="skill-item"><span class="skill-name"><i class="fas fa-drafting-compass"></i> Figma</span></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section id="projects" class="fade-in">
-    <div class="section-title">
-      <h2>Featured Projects</h2>
-      <div class="underline"></div>
-    </div>
-
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-img">
-          <img src="Project5.jpg" alt="Job Website - Frontend">
-        </div>
-        <div class="project-content">
-          <h3>Job Website - Frontend</h3>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Matirial UI</span>
-            <span>Sweet Alert</span>
-            <span>Axios</span>
-          </div>
-          <p>JobHunt is a modern, user-friendly job portal where job seekers can browse job listings, apply for
-            opportunities, and create profiles. Employers can post jobs, manage applications, and search for potential
-            candidates – all in real-time.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/job-web-frontend" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
+  <!-- ══ EXPERIENCE ══ -->
+  <section id="experience" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// where i've been</span>
+        <h2 class="section-title">Work <span class="accent">Experience</span></h2>
       </div>
+      <div class="timeline">
 
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="project1.jpg" alt="E-Commerce Platform">
-        </div>
-        <div class="project-content">
-          <h3>E-Commerce Platform</h3>
-          <div class="project-tags">
-            <span>Spring Boot</span>
-            <span>React</span>
-            <span>Redux</span>
-            <span>MySql</span>
+        <!-- Livezen Technologies -->
+        <div class="timeline-item reveal-child">
+          <div class="timeline-marker">
+            <div class="timeline-dot current"></div>
+            <div class="timeline-line"></div>
           </div>
-          <p>A full-stack e-commerce solution with integrated payment gateway and inventory management.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/e_cart" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-            <a href="https://fabulous-muffin-1e6f5f.netlify.app/" target="_blank" class="project-btn">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="Project3.jpg" alt="Coffee Shop Website">
-        </div>
-        <div class="project-content">
-          <h3>Coffee Shop Website</h3>
-          <div class="project-tags">
-            <span>Html</span>
-            <span>Tailwind Css</span>
-            <span>Java Script</span>
-            <span>My Sql</span>
-          </div>
-          <p>Real-time health monitoring application with push notifications and user-friendly interface.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/coffee-shop-website" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-            <a href="https://gleaming-kleicha-347bc0.netlify.app/" class="project-btn">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
+          <div class="timeline-content">
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-company-wrap">
+                  <div class="exp-company-icon"><i class="fas fa-building"></i></div>
+                  <div>
+                    <h3 class="exp-role">Intern Software Engineer</h3>
+                    <p class="exp-company">Livezen Technologies (Pvt) Ltd</p>
+                  </div>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-period"><i class="fas fa-calendar-alt"></i> Sep 2025 — Mar 2026</span>
+                  <!-- <span class="exp-badge current-badge">Current</span> -->
+                </div>
+              </div>
+              <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Sri Lanka &nbsp;·&nbsp; On-site</div>
+              <div class="exp-tags">
+                <span>PHP</span><span>Laravel</span><span>React.js</span><span>Next.js</span><span>MySQL</span><span>REST APIs</span>
+              </div>
+              <ul class="exp-duties">
+                <li>Developing full-stack web applications using <strong>PHP (Laravel)</strong> for backend and <strong>React / Next.js</strong> for frontend, delivering responsive and scalable web solutions.</li>
+                <li>Building and consuming <strong>RESTful APIs</strong> to power dynamic client-side interfaces and integrate business logic.</li>
+                <li>Collaborating in agile sprints, attending code reviews, and contributing to engineering team best practices.</li>
+                <li>Contributing to production deployments and supporting ongoing feature development on live platforms.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="project2.jpg" alt="Safari Website">
-        </div>
-        <div class="project-content">
-          <h3>Safari Website</h3>
-          <div class="project-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>MySQL</span>
+        <!-- Inkly & Co -->
+        <div class="timeline-item reveal-child">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
           </div>
-          <p>Comprehensive wildlife safari booking platform with custom analytics and booking management system.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/safari_web" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-            <a href="https://amazing-tiramisu-105122.netlify.app/" target="_blank" class="project-btn">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="project4.jpg" alt="Clothing Brand Website">
-        </div>
-        <div class="project-content">
-          <h3>Clothing Brand Website</h3>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Tailwind Css</span>
-            <span>Type Script</span>
-            <span>Rest API</span>
-          </div>
-          <p>Comprehensive Clothing Brand Website. Explore stylish, comfortable, and affordable clothing made to express
-            who you are.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/clothing_web" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-            <a href="https://clothingwebb.netlify.app/" target="_blank" class="project-btn">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
+          <div class="timeline-content">
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-company-wrap">
+                  <div class="exp-company-icon"><i class="fas fa-pen-nib"></i></div>
+                  <div>
+                    <h3 class="exp-role">Full-Stack Web Developer</h3>
+                    <p class="exp-company">Inkly &amp; Co</p>
+                  </div>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-period"><i class="fas fa-calendar-alt"></i> July 2024 — Aug 2025</span>
+                  <span class="exp-badge remote-badge"><i class="fas fa-wifi"></i> Remote</span>
+                </div>
+              </div>
+              <div class="exp-location"><i class="fas fa-wifi"></i> Fully Remote</div>
+              <div class="exp-tags">
+                <span>React.js</span><span>Next.js</span><span>Redux</span><span>Node.js</span><span>Express.js</span><span>Tailwind CSS</span>
+                <span>Rest APIs</span>
+              </div>
+              <ul class="exp-duties">
+                <li>Built and maintained scalable web applications using <strong>React.js</strong> with <strong>Redux</strong> for state management, and <strong>Spring Boot / MERN stack</strong> for backend services.</li>
+                <li>Collaborated closely with cross-functional remote teams on UI design, API integration, and feature delivery.</li>
+                <li>Crafted user-friendly, responsive interfaces using <strong>Tailwind CSS</strong> from Figma design handoffs.</li>
+                <li>Optimised application performance and security, consistently delivering results within tight deadlines.</li>
+                <li>Strengthened independent task management, remote communication, and agile self-discipline across time zones.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="Project5.jpg" alt="Job Website - Backend">
-        </div>
-        <div class="project-content">
-          <h3>Job Website - Backend</h3>
-          <div class="project-tags">
-            <span>Springboot</span>
-            <span>Spring Security</span>
-            <span>Model Maper</span>
-            <span>JWT</span>
-            <span>MySql</span>
+        <!-- ACPT -->
+        <div class="timeline-item reveal-child">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
           </div>
-          <p>The backend of JobHunt is powered by Spring Boot, ensuring high performance, scalability, and security. It
-            manages core functionalities like user authentication, job postings, applications, and role-based access for
-            employers and job seekers.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/job-web-frontend" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="project7.jpg" alt="Fashion Website">
-        </div>
-        <div class="project-content">
-          <h3>Fashion Website</h3>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Matirial UI</span>
-            <span>Axios</span>
-          </div>
-          <p>The frontend is developed using React.js, offering a fast, interactive, and responsive user experience. It
-            features dynamic product browsing, filterable collections, smooth page transitions, and a modern design
-            optimized for all devices.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/pabbi-fashion-store" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
+          <div class="timeline-content">
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-company-wrap">
+                  <div class="exp-company-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                  <div>
+                    <h3 class="exp-role">Trainee Software Engineer</h3>
+                    <p class="exp-company">ACPT — Academy of Computer Programming &amp; Training</p>
+                  </div>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-period"><i class="fas fa-calendar-alt"></i> Jan 2024 — July 2024</span>
+                  <span class="exp-badge">6 months</span>
+                </div>
+              </div>
+              <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Sri Lanka &nbsp;·&nbsp; On-site</div>
+              <div class="exp-tags">
+                <span>Java</span><span>Spring Boot</span><span>React.js</span><span>Node.js</span><span>Express.js</span><span>Redux</span><span>React Native</span><span>AWS EC2</span><span>MySQL</span><span>REST APIs</span>
+              </div>
+              <ul class="exp-duties">
+                <li>Designed, developed, and deployed scalable web applications using <strong>Java Spring Boot</strong> for backend services and <strong>React.js / React Native</strong> for responsive web and mobile frontends.</li>
+                <li>Built and integrated <strong>RESTful APIs</strong>, connecting third-party services and ensuring seamless client-server communication.</li>
+                <li>Utilised <strong>AWS EC2 and S3</strong> to deploy and manage production applications, gaining practical cloud infrastructure and DevOps experience.</li>
+                <li>Sharpened problem-solving abilities within agile teams, applying best practices in software architecture and application security.</li>
+                <li>Delivered end-to-end application lifecycle work — from <strong>Figma UI/UX prototyping</strong> to production-ready deployment.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="project8.jpg" alt="ID Card Validator">
-        </div>
-        <div class="project-content">
-          <h3>ID Card Validator</h3>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Restful API</span>
-          </div>
-          <p>The ID Card Validator securely verifies the authenticity and validity of identification cards by
-            cross-checking key details against a trusted database. It ensures accurate identity verification in
-            real-time, reducing fraud and speeding up verification processes for businesses and institutions.</p>
-          <div class="project-links">
-            <a href="https://github.com/Sanduntha/lanka-nic-validator" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
-    <div class="section-title">
-      <h2>Let's Build Together!</h2>
-      <div class="underline"></div>
-    </div>
-    <div class="contact-container">
-      <div class="contact-info">
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h3>Email</h3>
-            <p><a href="mailto:sanduntharaka9651@gmail.com">sanduntharaka9651@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-github"></i>
-          <div>
-            <h3>GitHub</h3>
-            <p><a href="https://github.com/Sanduntha" target="_blank">github.com/Sanduntha</a></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-linkedin"></i>
-          <div>
-            <h3>LinkedIn</h3>
-            <p><a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank">Sandun Perera</a></p>
-          </div>
-        </div>
+  <!-- ══ EDUCATION ══ -->
+  <section id="education" class="section section-dark reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// how i learned</span>
+        <h2 class="section-title">Educational <span class="accent">Qualifications</span></h2>
       </div>
-      <div class="contact-form">
-        <form id="contactForm">
-          <div class="form-group">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <div class="edu-grid">
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent"></div>
+          <div class="edu-icon"><i class="fas fa-university"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>BSc. (Hons) Information Technology</h3>
+              <span class="edu-status current-status">In Progress</span>
+            </div>
+            <p class="edu-institution">University of Colombo School of Computing (UCSC)</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i> 2024 — Present</p>
+            <p class="edu-desc">Pursuing a comprehensive IT degree with a strong focus on software engineering, data structures, algorithms, database management, and computer networks — alongside 2+ years of concurrent professional experience.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> Software Engineering</span>
+              <span><i class="fas fa-star"></i> Data Structures &amp; Algorithms</span>
+              <span><i class="fas fa-star"></i> Database Systems</span>
+              <span><i class="fas fa-star"></i> Computer Networks</span>
+              <span><i class="fas fa-star"></i> Cloud Computing</span>
+              <span><i class="fas fa-star"></i> Project Management</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent accent-2"></div>
+          <div class="edu-icon accent-icon-2"><i class="fas fa-code"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>Certificate — Advanced Full Stack Developer Program</h3>
+              <span class="edu-status ongoing-status">Ongoing</span>
+            </div>
+            <p class="edu-institution">ACPT Institute</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i>2024</p>
+            <p class="edu-desc">Intensive industry-grade program covering the full spectrum of modern full-stack development — backend API design, cloud deployment, advanced frontend engineering, and mobile development with React Native.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> Java &amp; Spring Boot</span>
+              <span><i class="fas fa-star"></i> Node &amp; Express.js</span>
+              <span><i class="fas fa-star"></i> React.js</span>
+              <span><i class="fas fa-star"></i> Redux</span>
+              <span><i class="fas fa-star"></i> MySQL</span>
+              <span><i class="fas fa-star"></i> React Native</span>
+              <span><i class="fas fa-star"></i> AWS Deployment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent accent-3"></div>
+          <div class="edu-icon accent-icon-3"><i class="fas fa-certificate"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>Certificate in Web Development</h3>
+              <span class="edu-status completed-status">Completed</span>
+            </div>
+            <p class="edu-institution">University of Moratuwa</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i> May 2024 — Aug 2024</p>
+            <p class="edu-desc">Structured web development certification from one of Sri Lanka's leading technical universities, reinforcing core web technologies, responsive design, and modern best practices in a formal academic setting.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> Responsive Design</span>
+              <span><i class="fas fa-star"></i> Modern JavaScript</span>
+              <span><i class="fas fa-star"></i> Web Best Practices</span>
+              <span><i class="fas fa-star"></i> Server Side Development</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent accent-4"></div>
+          <div class="edu-icon accent-icon-4"><i class="fas fa-shield-alt"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>Certificate in Cyber Security</h3>
+              <span class="edu-status completed-status">Completed</span>
+            </div>
+            <p class="edu-institution">Online Certification Program</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i> 2024</p>
+            <p class="edu-desc">Gained foundational and intermediate cybersecurity knowledge covering application security, threat analysis, and secure coding practices — directly applied to building secure software systems professionally.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> Application Security</span>
+              <span><i class="fas fa-star"></i> Threat Analysis</span>
+              <span><i class="fas fa-star"></i> Secure Coding</span>
+              <span><i class="fas fa-star"></i> Ethical Hacking</span>
+              <span><i class="fas fa-star"></i> Penetration Testing</span>
+              <span><i class="fas fa-star"></i> Cloud Security</span>
+              <span><i class="fas fa-star"></i> Network Security</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent accent-5"></div>
+          <div class="edu-icon accent-icon-5"><i class="fas fa-chart-line"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>Diploma in Digital Marketing</h3>
+              <span class="edu-status completed-status">Completed</span>
+            </div>
+            <p class="edu-institution">Professional Development Program</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i> 2023 — 2024</p>
+            <p class="edu-desc">Completed a comprehensive digital marketing diploma covering SEO, content strategy, social media marketing, and analytics — complementing technical expertise with product thinking and user awareness.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> SEO &amp; Analytics</span>
+              <span><i class="fas fa-star"></i> Content Strategy</span>
+              <span><i class="fas fa-star"></i> Social Media Marketing</span>
+              <span><i class="fas fa-star"></i> Product Thinking</span>
+              <span><i class="fas fa-star"></i> User Awareness</span>
+              <span><i class="fas fa-star"></i> Digital Strategy</span>
+              <span><i class="fas fa-star"></i> Google Analystics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal-child">
+          <div class="edu-card-accent accent-6"></div>
+          <div class="edu-icon accent-icon-6"><i class="fas fa-microchip"></i></div>
+          <div class="edu-content">
+            <div class="edu-header">
+              <h3>Diploma in Computer Science</h3>
+              <span class="edu-status completed-status">Completed</span>
+            </div>
+            <p class="edu-institution">Professional Development Program</p>
+            <p class="edu-period"><i class="fas fa-calendar-alt"></i> Jan 2022 — Dec 2022</p>
+            <p class="edu-desc">Deepened core computer science knowledge — programming fundamentals, data structures, operating systems, and software design principles — building a rigorous theoretical foundation for all engineering work.</p>
+            <div class="edu-highlights">
+              <span><i class="fas fa-star"></i> Programming Fundamentals</span>
+              <span><i class="fas fa-star"></i> Data Structures</span>
+              <span><i class="fas fa-star"></i> Software Design Principles</span>
+              <span><i class="fas fa-star"></i> Operating Systems</span>
+              <span><i class="fas fa-star"></i> Computer Architecture</span>
+              <span><i class="fas fa-star"></i> Computer Networks</span>
+              <span><i class="fas fa-star"></i> Computer Graphics</span>
+              <span><i class="fas fa-star"></i> Computer Security</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// what i've built</span>
+        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      </div>
+
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card featured reveal-child" data-category="fullstack">
+          <div class="project-featured-badge">Featured</div>
+          <div class="project-img-wrap">
+            <img src="project1.jpg" alt="E-Commerce Platform">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/e_cart" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://fabulous-muffin-1e6f5f.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>React.js</span><span>Redux</span><span>Spring Boot</span><span>MySQL</span></div>
+            <h3>E-Commerce Platform</h3>
+            <p>Full-stack shopping cart and checkout system with product listings, inventory management, and secure payment gateway. Redux manages global state efficiently across the application.</p>
+          </div>
+        </div>
+
+        <div class="project-card featured reveal-child" data-category="fullstack">
+          <div class="project-featured-badge">Featured</div>
+          <div class="project-img-wrap">
+            <img src="Project5.jpg" alt="Job & Skill Development Platform">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/job-web-frontend" target="_blank" title="Frontend"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/Sanduntha/job-web-backend" target="_blank" title="Backend"><i class="fas fa-server"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>React.js</span><span>Spring Boot</span><span>MySQL</span><span>AWS EC2/RDS</span><span>JWT</span></div>
+            <h3>Job &amp; Skill Development Platform</h3>
+            <p>Comprehensive platform enabling job seekers to apply and employers to post vacancies. Role-based dashboards for admins, trainers, and seekers. Deployed on AWS EC2 with managed RDS for scalability.</p>
+          </div>
+        </div>
+
+        <div class="project-card featured reveal-child" data-category="fullstack">
+          <div class="project-featured-badge">Featured</div>
+          <div class="project-img-wrap">
+            <img src="project10.jpg" alt="SmartStock Inventory">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/full-stack-inventry-manegement-system" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://unique-meerkat-a3ee8a.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>Laravel 12</span><span>React.js</span><span>MySQL</span><span>Tailwind CSS</span><span>Vite</span></div>
+            <h3>SmartStock — Inventory System</h3>
+            <p>Professional-grade inventory solution with real-time stock tracking, automated low-stock alerts, and optimised resource management. Built with Laravel backend and React frontend.</p>
+          </div>
+        </div>
+
+        <div class="project-card featured reveal-child" data-category="fullstack">
+          <div class="project-featured-badge">Featured</div>
+          <div class="project-img-wrap">
+            <img src="project9.jpg" alt="LifeStream Blood Donation">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/full-stack-blood-donation-web" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://lovely-longma-262a2b.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span><span>JWT Auth</span></div>
+            <h3>LifeStream — Blood Donation Hub</h3>
+            <p>Full-stack MERN donation platform with secure JWT authentication, real-time blood request tracking, and a centralised donor management dashboard.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="fullstack">
+          <div class="project-img-wrap">
+            <img src="project8.jpg" alt="Healthcare System">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/full-stack-health-care-website.git" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span></div>
+            <h3>Healthcare Management System</h3>
+            <p>MERN stack app with secure patient authentication, dynamic doctor directory, and real-time appointment scheduling for both patients and administrators.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="frontend">
+          <div class="project-img-wrap">
+            <img src="Project3.jpg" alt="Coffee Shop Website">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/coffee-shop-website" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://gleaming-kleicha-347bc0.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML5</span><span>Tailwind CSS</span><span>JavaScript</span></div>
+            <h3>Coffee Shop Website</h3>
+            <p>Fully responsive coffee shop site with interactive menus, smooth animations, and a modern UI built with HTML5, Tailwind CSS, and vanilla JavaScript.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="frontend">
+          <div class="project-img-wrap">
+            <img src="project4.jpg" alt="Clothing Brand">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/clothing_web" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://clothingwebb.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>REST API</span></div>
+            <h3>Clothing Brand Website</h3>
+            <p>Modern clothing brand website with type-safe TypeScript codebase, API-driven product listings, and stylish responsive design.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="frontend">
+          <div class="project-img-wrap">
+            <img src="project2.jpg" alt="Safari Website">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/safari_web" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://amazing-tiramisu-105122.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+            <h3>Safari Website</h3>
+            <p>Wildlife safari booking platform with custom analytics, booking management system, and immersive visual design.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="backend">
+          <div class="project-img-wrap">
+            <img src="Project5.jpg" alt="Job Platform Backend">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/job-web-backend" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>Spring Boot</span><span>Spring Security</span><span>JWT</span><span>MySQL</span></div>
+            <h3>Job Platform — Backend API</h3>
+            <p>Secure, high-performance Spring Boot API managing user authentication, job postings, applications, and role-based access control for the job platform.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="frontend">
+          <div class="project-img-wrap">
+            <img src="project6.jpg" alt="Fashion Website">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/pabbi-fashion-store" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>React</span><span>Material UI</span><span>Axios</span></div>
+            <h3>Fashion Store — Frontend</h3>
+            <p>Fast, interactive React frontend with dynamic product browsing, filterable collections, and smooth page transitions optimised for all screen sizes.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal-child" data-category="frontend">
+          <div class="project-img-wrap">
+            <img src="project7.jpg" alt="NIC Validator">
+            <div class="project-overlay">
+              <div class="project-links-overlay">
+                <a href="https://github.com/Sanduntha/lanka-nic-validator" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>React</span><span>REST API</span></div>
+            <h3>Sri Lanka NIC Validator</h3>
+            <p>Real-time NIC card validator that securely verifies identity authenticity by cross-checking key details against a trusted database, reducing fraud for businesses and institutions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="section section-dark reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// get in touch</span>
+        <h2 class="section-title">Let's Build <span class="accent">Together</span></h2>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p class="contact-lead">Have a project in mind or want to collaborate? I'm always open to discussing new opportunities, partnerships, and ideas. Let's create something great.</p>
+          <div class="contact-links">
+            <a href="mailto:sanduntharaka9651@gmail.com" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value">sanduntharaka9651@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+94766946953" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <span class="contact-link-label">Phone</span>
+                <span class="contact-link-value">+94 76 694 6953</span>
+              </div>
+            </a>
+            <a href="https://github.com/Sanduntha" target="_blank" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <span class="contact-link-label">GitHub</span>
+                <span class="contact-link-value">github.com/Sanduntha</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">Sandun Perera</span>
+              </div>
+            </a>
+            <a href="https://www.sanduntharaka.me" target="_blank" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fas fa-globe"></i></div>
+              <div>
+                <span class="contact-link-label">Portfolio</span>
+                <span class="contact-link-value">www.sanduntharaka.me</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
           </div>
           <div class="form-group">
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project Collaboration" required>
           </div>
           <div class="form-group">
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
-          <div class="form-group">
-            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="submit-button">
+          <button type="submit" class="submit-btn">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+          </div>
         </form>
       </div>
     </div>
   </section>
 
+  <!-- ══ FOOTER ══ -->
   <footer>
     <div class="footer-content">
-      <div class="footer-quote">
-        <p>⭐ "The most effective way to do it, is to do it." - Amelia Earhart</p>
-      </div>
-      <div class="social-links">
+      <div class="footer-logo"><span class="logo-bracket">[</span>SP<span class="logo-bracket">]</span></div>
+      <div class="footer-quote">"The most effective way to do it, is to do it." — Amelia Earhart</div>
+      <div class="footer-social">
         <a href="https://github.com/Sanduntha" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank"><i
-            class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/sandun-perera-11a61b211/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:sanduntharaka9651@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.sanduntharaka.me" target="_blank"><i class="fas fa-globe"></i></a>
       </div>
-      <div class="copyright">
-        <p>© 2025 Sandun Tharaka Perera. All rights reserved.</p>
-      </div>
+      <div class="footer-copy">© 2025 Sandun Tharaka Perera — Negombo, Sri Lanka. Crafted with <span class="heart">♥</span></div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
